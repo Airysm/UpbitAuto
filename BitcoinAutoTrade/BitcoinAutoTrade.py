@@ -14,9 +14,9 @@ def get_balance(ticker):
                 return 0
     return 0
 
-access = "G2PJKI7laKAOwjsChfYx3eTMcPyw03bXbaH7x3lZ"                     # upbit access key
-secret = "aF6nXuQefkahmgSX48tNZ09AoWwAlq8MpyweXB68"                     # upbit secret key
-myToken = "xoxb-1668532507347-2054584811223-L44EI78ajfBuoAV15qK0XFBK"   # slack bot token
+access = "###############################"                     # upbit access key
+secret = "###############################"                     # upbit secret key
+myToken = "################################"   # slack bot token
 
 # 로그인
 upbit = pyupbit.Upbit(access, secret)
