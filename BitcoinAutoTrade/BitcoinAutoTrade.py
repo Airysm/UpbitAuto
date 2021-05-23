@@ -16,7 +16,7 @@ def get_balance(ticker):
 
 access = "#####"                     # upbit access key
 secret = "#####"                     # upbit secret key
-myToken = "#####"   # slack bot token
+myToken = "#####"                    # slack bot token
 
 # 로그인
 upbit = pyupbit.Upbit(access, secret)
@@ -70,9 +70,7 @@ while True:
                             buyed.append(bitcoin)
                             krw = get_balance("KRW")
                             if krw > 5000:
-                                #buy_result = upbit.buy_market_order(bitcoin, 5000)
-                                print("buy : ", bitcoin)  # 다음날 9시에 해보자 이거 지우셈
-                                buy_result =0             #2222
+                                buy_result = upbit.buy_market_order(bitcoin, 5000)
                                 post_message(myToken, "#bitcoin", bitcoin + " buy : " + str(buy_result))
                     count = count + 1
                     time.sleep(0.1)
@@ -82,10 +80,8 @@ while True:
                 # 매도 작업
                 for bitcoin in buyed:
                     btc = get_balance(bitcoin) # 구매한 비트코인
-                    #sell_result = upbit.sell_market_order(bitcoin, btc * 0.9995)
-                    print("sell : ", bitcoin) # 다음날 지우자
-                    sell_result =0            #2222
-                    post_message(myToken, "#bitcoin", "ETH buy : " + str(sell_result))
+                    sell_result = upbit.sell_market_order(bitcoin, btc * 0.9995)
+                    post_message(myToken, "#bitcoin", bitcoin + " buy : " + str(sell_result))
                     time.sleep(1)
 
                 # 수익률 계산
